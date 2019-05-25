@@ -16,8 +16,8 @@ class CreateTaskUserTable extends Migration
       if(!schema::hasTable('task_user')){
         Schema::create('task_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('task_id')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->integer('task_id');
+            $table->integer('user_id');
             $table->foreign('task_id')->references('id')->on('tasks');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
